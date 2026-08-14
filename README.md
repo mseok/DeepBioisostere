@@ -13,7 +13,7 @@ This repository holds **only the static page**. It is not the code.
 | Source code | <https://github.com/Hwoo-Kim/DeepBioisostere> |
 | Python package | `pip install deepbioisostere` |
 | Model weights | <https://huggingface.co/mseok/DeepBioisostere> |
-| Data & archive | [10.5281/zenodo.20603082](https://doi.org/10.5281/zenodo.20603082) |
+| Data & archive | [10.5281/zenodo.20603081](https://doi.org/10.5281/zenodo.20603081) — concept DOI, always the latest version |
 
 Served by GitHub Pages from the default branch root. `.nojekyll` is present so
 that paths beginning with an underscore are not stripped.
