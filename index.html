@@ -30,433 +30,277 @@
   <meta name="citation_journal_title" content="Nature Communications">
   <meta name="citation_doi" content="10.1038/s41467-026-75512-9">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
 
-<!-- Title / authors / links -->
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DeepBioisostere</h1>
-          <h2 class="subtitle is-4 publication-subtitle">
-            Autonomous Bioisosteric Replacement for Multi-Property Optimization in Drug Design
-          </h2>
+<header class="masthead">
+  <div class="wrap">
+    <p class="venue">Nature Communications &nbsp;&middot;&nbsp; 2026</p>
+    <h1 class="paper-title">Autonomous bioisosteric replacement for multi-property optimization in drug design</h1>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://github.com/Hwoo-Kim">Hyeongwoo Kim</a><sup>1,*</sup>,</span>
-            <span class="author-block">
-              <a href="https://github.com/mseok">Seokhyun Moon</a><sup>1,*</sup>,</span>
-            <span class="author-block">Wonho Zhung<sup>1</sup>,</span>
-            <span class="author-block">Shinwoo Kim<sup>1</sup>,</span>
-            <span class="author-block">Jaechang Lim<sup>2</sup>,</span>
-            <span class="author-block">Woo Youn Kim<sup>1,2,&dagger;</sup></span>
-          </div>
-
-          <div class="is-size-6 publication-affiliations">
-            <span class="author-block"><sup>1</sup>KAIST</span>
-            <span class="author-block"><sup>2</sup>HITS Inc.</span>
-          </div>
-          <div class="is-size-7 publication-note">
-            <sup>*</sup>Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup>Corresponding author
-          </div>
-
-          <div class="is-size-5 publication-venue">
-            <span class="venue-badge">Nature Communications 2026</span>
-          </div>
-
-          <div class="publication-links">
-            <span class="link-block">
-              <a href="https://doi.org/10.1038/s41467-026-75512-9" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fas fa-file-lines"></i></span>
-                <span>Paper</span>
-              </a>
-            </span>
-            <span class="link-block">
-              <a href="https://github.com/Hwoo-Kim/DeepBioisostere" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fab fa-github"></i></span>
-                <span>Code</span>
-              </a>
-            </span>
-            <span class="link-block">
-              <a href="https://doi.org/10.5281/zenodo.20603081" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="ai ai-zenodo"></i></span>
-                <span>Data</span>
-              </a>
-            </span>
-            <span class="link-block">
-              <a href="https://pypi.org/project/deepbioisostere/" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fab fa-python"></i></span>
-                <span>PyPI</span>
-              </a>
-            </span>
-            <span class="link-block">
-              <a href="https://huggingface.co/mseok/DeepBioisostere" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">&#129303;</span>
-                <span>Weights</span>
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- One-line problem statement -->
-<section class="section lede-section">
-  <div class="container is-max-desktop">
-    <p class="lede">
-      Swap a fragment for an analogous one and you can tune a molecule's properties without
-      losing its activity. Doing it <em>in silico</em> has meant telling the model where to cut
-      and settling for one property at a time.
-      <strong>DeepBioisostere chooses the site itself and steers several properties at once.</strong>
+    <p class="authors">
+      <a href="https://github.com/Hwoo-Kim">Hyeongwoo Kim</a><sup>1,*</sup>,
+      <a href="https://github.com/mseok">Seokhyun Moon</a><sup>1,*</sup>,
+      Wonho Zhung<sup>1</sup>,
+      Shinwoo Kim<sup>1</sup>,
+      Jaechang Lim<sup>2</sup>,
+      Woo Youn Kim<sup>1,2,&dagger;</sup>
     </p>
-  </div>
-</section>
-
-<!-- Results at a glance -->
-<section class="section stats-section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered section-eyebrow">Property control, measured</h2>
-    <p class="stats-lede has-text-centered">
-      3,000 test molecules, each generated under two property targets. Mean achieved change
-      against the value the model was asked for.
-    </p>
-    <div class="columns is-centered stats-grid">
-      <div class="column">
-        <div class="stat-card">
-          <div class="stat-ask">asked for <span>logP &minus;1</span></div>
-          <div class="stat-value">&minus;0.84</div>
-          <div class="stat-spread">&plusmn; 0.43</div>
-          <div class="stat-note">while holding <em>M</em><sub>w</sub> at &minus;0.28 &plusmn; 12.6</div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="stat-card">
-          <div class="stat-ask">asked for <span>QED +0.2</span></div>
-          <div class="stat-value">+0.10</div>
-          <div class="stat-spread">&plusmn; 0.10</div>
-          <div class="stat-note">while holding <em>M</em><sub>w</sub> at &minus;0.57 &plusmn; 12.0</div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="stat-card">
-          <div class="stat-ask">asked for <span>SA &minus;1</span></div>
-          <div class="stat-value">&minus;0.72</div>
-          <div class="stat-spread">&plusmn; 0.52</div>
-          <div class="stat-note">while holding QED at &minus;0.03 &plusmn; 0.07</div>
-        </div>
-      </div>
-    </div>
-    <p class="stats-foot has-text-centered">
-      The held property stays put while the commanded one moves &mdash; the two are steered
-      independently, not traded off. Full numbers in Table 1 of the paper.
-    </p>
-  </div>
-</section>
-
-<!-- Method -->
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">How it works</h2>
-    <p class="section-intro has-text-centered">
-      One forward pass makes three decisions. Nothing is supplied by an expert, and no
-      substitution table is consulted.
+    <p class="affiliations">
+      <sup>1</sup>KAIST &nbsp;&nbsp; <sup>2</sup>HITS Inc.
+      <span class="note"><sup>*</sup>Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup>Corresponding author</span>
     </p>
 
-    <div class="pipeline">
-      <div class="pipeline-step">
-        <div class="step-index">1</div>
-        <h3 class="step-title">Where to cut</h3>
-        <p>
-          The molecule is decomposed along BRICS bonds and every resulting subgraph is scored
-          as a removal candidate. The model picks the site; you never mark one.
-        </p>
-      </div>
-      <div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
-      <div class="pipeline-step">
-        <div class="step-index">2</div>
-        <h3 class="step-title">What to put back</h3>
-        <p>
-          The vacated site is matched against a library of <strong>140,096</strong> insertion
-          fragments, scored jointly with the removal choice and with the property target as
-          conditioning.
-        </p>
-      </div>
-      <div class="pipeline-arrow" aria-hidden="true">&rarr;</div>
-      <div class="pipeline-step">
-        <div class="step-index">3</div>
-        <h3 class="step-title">How to attach it</h3>
-        <p>
-          A fragment can often be joined in more than one orientation. The model scores the
-          attachment points too, then composes the product molecule.
-        </p>
-      </div>
-    </div>
-
-    <div class="method-note">
-      <p>
-        <strong>Conditioning is on the change, not the value.</strong> The model is told
-        &ldquo;lower logP by 1&rdquo; rather than &ldquo;reach logP 2.5&rdquo;, so a single
-        checkpoint serves any starting molecule, and several targets can be commanded at once.
-        Training pairs come from experimental bioassay data, which is what lets the model
-        propose replacements no substitution table lists.
-      </p>
-    </div>
+    <nav class="resource-links">
+      <a href="https://doi.org/10.1038/s41467-026-75512-9">Paper</a>
+      <a href="https://github.com/Hwoo-Kim/DeepBioisostere">Code</a>
+      <a href="https://doi.org/10.5281/zenodo.20603081">Data</a>
+      <a href="https://pypi.org/project/deepbioisostere/">PyPI</a>
+      <a href="https://huggingface.co/mseok/DeepBioisostere">Weights</a>
+    </nav>
   </div>
-</section>
+</header>
 
-<!-- Result 1: multi-property conditioning -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="result-head">
-      <span class="result-tag">Result 1</span>
-      <h2 class="title is-3">Two properties, steered at once</h2>
-      <p class="result-intro">
-        Three input molecules, each given the same pair of opposing commands &mdash; hold
-        <em>M</em><sub>w</sub>, move logP by &minus;1 and by +1. The black dot is the input; each
-        contour set is the generated population under one command. The two populations separate
-        along logP while both stay stacked over the input's molecular weight, and the model picks
-        its own cut site in each molecule (highlighted above each plot).
-      </p>
-    </div>
+<main>
 
-    <div class="result-grid">
-      <figure class="result-card">
-        <div class="result-mol">
-          <img src="./static/images/fig2_mol1_cut_a.svg" alt="Input molecule for case 1 with the removed fragment highlighted">
-        </div>
-        <div class="result-plot">
-          <img src="./static/images/fig2_mol1_kde.svg" alt="Joint density of molecular weight against logP for the molecules generated under two logP targets">
-        </div>
-        <figcaption>
-          <strong>Molecule 1.</strong> The two commands pull the population cleanly above and
-          below the input's logP, with the molecular-weight marginals left on top of each other.
-        </figcaption>
-      </figure>
+  <section class="wrap">
+    <h2>Summary</h2>
+    <p>
+      Bioisosteric replacement substitutes one molecular fragment for a chemically or biologically
+      analogous one, tuning a compound's properties without disrupting its activity. Existing
+      <em>in silico</em> approaches largely depend on an expert to nominate the modification site,
+      and struggle to move more than one property at a time.
+    </p>
+    <p>
+      DeepBioisostere performs the replacement end to end. It selects the site itself, chooses the
+      incoming fragment, and decides how to attach it, conditioned on a target <em>change</em> in
+      several properties at once. Trained on matched molecular pairs drawn from experimental
+      bioassay data, it proposes replacements that lie outside any pre-established substitution
+      table.
+    </p>
+  </section>
 
-      <figure class="result-card">
-        <div class="result-mol">
-          <img src="./static/images/fig2_mol2_cut.svg" alt="Input molecule for case 2 with the removed fragment highlighted">
-        </div>
-        <div class="result-plot">
-          <img src="./static/images/fig2_mol2_kde.svg" alt="Joint density of molecular weight against QED for the molecules generated under two QED targets">
-        </div>
-        <figcaption>
-          <strong>Molecule 2.</strong> A different scaffold and a different cut site, with the
-          same clean split under the same pair of commands.
-        </figcaption>
-      </figure>
+  <section class="wrap">
+    <h2>How the model works</h2>
+    <p>
+      A single forward pass makes three dependent decisions. No modification site is supplied, and
+      no substitution rules are consulted.
+    </p>
+    <ol class="steps">
+      <li>
+        <strong>Where to cut.</strong> The molecule is decomposed along BRICS bonds and every
+        resulting subgraph is scored as a removal candidate.
+      </li>
+      <li>
+        <strong>What to put back.</strong> The vacated site is matched against a library of 140,096
+        insertion fragments, scored jointly with the removal choice.
+      </li>
+      <li>
+        <strong>How to attach it.</strong> A fragment can often be joined in more than one
+        orientation, so the attachment points are scored before the product is composed.
+      </li>
+    </ol>
+    <p>
+      Conditioning is applied to the property <em>change</em> rather than its absolute value, so one
+      checkpoint serves any starting molecule and several targets can be commanded together.
+    </p>
+  </section>
 
-      <figure class="result-card">
-        <div class="result-mol">
-          <img src="./static/images/fig2_mol3_cut.svg" alt="Input molecule for case 3 with the removed fragment highlighted">
-        </div>
-        <div class="result-plot">
-          <img src="./static/images/fig2_mol3_kde.svg" alt="Joint density of QED against synthetic accessibility for the molecules generated under two SA targets">
-        </div>
-        <figcaption>
-          <strong>Molecule 3.</strong> Same again on a third input &mdash; the separation is a
-          property of the conditioning, not of one lucky molecule.
-        </figcaption>
-      </figure>
-    </div>
+  <section class="wrap">
+    <h2>Multi-property conditioning</h2>
+    <p>
+      Three input molecules are each given the same pair of opposing commands: hold molecular
+      weight, move logP by &minus;1 and by +1. The generated populations separate along logP while
+      both remain centred on the input's molecular weight.
+    </p>
 
-    <div class="cut-compare">
-      <h3 class="cut-title">The target decides where it cuts</h3>
-      <p class="cut-intro">
-        Molecule 1 again, under each of the two commands. The bold atoms are the fragment the
-        model chose to remove &mdash; and it is not the same fragment.
-      </p>
-      <div class="cut-grid">
-        <figure class="cut-card">
-          <img src="./static/images/fig2_mol1_cut_a.svg" alt="Molecule 1 with the polar oxyacetic acid arm marked for removal">
-          <figcaption>Under one command it takes out the polar oxyacetic acid arm.</figcaption>
-        </figure>
-        <figure class="cut-card">
-          <img src="./static/images/fig2_mol1_cut_b.svg" alt="Molecule 1 with the lipophilic cycloheptylmethyl group marked for removal">
-          <figcaption>Under the opposite command it takes out the lipophilic cycloheptylmethyl group instead.</figcaption>
-        </figure>
+    <figure class="fig">
+      <div class="fig-row three">
+        <div class="panel">
+          <img class="mol" src="./static/images/fig2_mol1_kde.svg" alt="Joint density of molecular weight against logP for molecule 1 under two opposing logP targets">
+          <p class="panel-label">Molecule 1</p>
+        </div>
+        <div class="panel">
+          <img class="mol" src="./static/images/fig2_mol2_kde.svg" alt="Joint density of molecular weight against logP for molecule 2 under two opposing logP targets">
+          <p class="panel-label">Molecule 2</p>
+        </div>
+        <div class="panel">
+          <img class="mol" src="./static/images/fig2_mol3_kde.svg" alt="Joint density of molecular weight against logP for molecule 3 under two opposing logP targets">
+          <p class="panel-label">Molecule 3</p>
+        </div>
       </div>
-      <p class="cut-foot">
-        Removing the lipophilic group lowers logP and removing the polar one raises it, so the
-        site the model picks tracks the direction it was asked to move &mdash; the choice of
-        <em>where</em> to edit is part of what the conditioning controls, not a fixed
-        preprocessing step.
-      </p>
-    </div>
-  </div>
-</section>
+      <figcaption>
+        <span class="fig-label">Figure 2</span>
+        Joint distributions of molecular weight and logP for the molecules generated under each
+        command. The black dot marks the input. The two contour sets separate along logP; the
+        molecular-weight marginals remain superposed.
+      </figcaption>
+    </figure>
 
-<!-- Result 2: chemical environment -->
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <div class="result-head">
-      <span class="result-tag">Result 2</span>
-      <h2 class="title is-3">The choice depends on the environment</h2>
-      <p class="result-intro">
-        A control that isolates context. Two molecules, <em>A</em> and <em>B</em>, share the same
-        leaving fragment. The model's own outputs for each (<em>M&prime;<sub>A</sub></em>,
-        <em>M&prime;<sub>B</sub></em>) are compared against a graft
-        (<em>M&Prime;<sub>B</sub></em>): the fragments it chose for <em>A</em>, transplanted onto
-        <em>B</em>'s scaffold by BRICS. The transplant is where the two properties come apart.
-      </p>
-    </div>
+    <table class="data">
+      <caption><span class="fig-label">Table 1</span> Mean achieved change against the commanded target, over 3,000 test molecules.</caption>
+      <thead>
+        <tr><th>Commanded</th><th>Achieved</th><th>Held property</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>logP &minus;1</td><td>&minus;0.84 &plusmn; 0.43</td><td><em>M</em><sub>w</sub> &minus;0.28 &plusmn; 12.6</td></tr>
+        <tr><td>logP +1</td><td>+0.83 &plusmn; 0.38</td><td><em>M</em><sub>w</sub> +0.04 &plusmn; 12.8</td></tr>
+        <tr><td>QED +0.1</td><td>+0.07 &plusmn; 0.09</td><td><em>M</em><sub>w</sub> &minus;0.11 &plusmn; 12.1</td></tr>
+        <tr><td>QED +0.2</td><td>+0.10 &plusmn; 0.10</td><td><em>M</em><sub>w</sub> &minus;0.57 &plusmn; 12.0</td></tr>
+        <tr><td>SA &minus;0.5</td><td>&minus;0.42 &plusmn; 0.43</td><td>QED &minus;0.03 &plusmn; 0.07</td></tr>
+        <tr><td>SA &minus;1</td><td>&minus;0.72 &plusmn; 0.52</td><td>QED &minus;0.03 &plusmn; 0.07</td></tr>
+      </tbody>
+    </table>
+    <p class="after-table">
+      In every row the commanded property moves and the held property does not, so the two are
+      steered independently rather than traded against each other.
+    </p>
+  </section>
 
-    <div class="columns is-centered result-pair">
-      <div class="column">
-        <figure class="result-card is-plain">
+  <section class="wrap">
+    <h2>The target determines the modification site</h2>
+    <p>
+      The same molecule under the two opposing commands is cut in two different places. Removing the
+      lipophilic group lowers logP and removing the polar one raises it, so the site the model
+      selects tracks the direction it was asked to move &mdash; site selection is part of what the
+      conditioning controls, not a fixed preprocessing step.
+    </p>
+
+    <figure class="fig">
+      <div class="fig-row two">
+        <div class="panel">
+          <img class="cut" src="./static/images/fig2_mol1_cut_a.svg" alt="Molecule 1 with the polar oxyacetic acid arm marked for removal">
+          <p class="panel-label">Polar oxyacetic acid arm removed</p>
+        </div>
+        <div class="panel">
+          <img class="cut" src="./static/images/fig2_mol1_cut_b.svg" alt="Molecule 1 with the lipophilic cycloheptylmethyl group marked for removal">
+          <p class="panel-label">Lipophilic cycloheptylmethyl group removed</p>
+        </div>
+      </div>
+      <figcaption>
+        <span class="fig-label">Figure 2, removal panels</span>
+        Molecule 1 under each of the two commands. Bold atoms mark the fragment selected for
+        removal.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap">
+    <h2>Compatibility with the chemical environment</h2>
+    <p>
+      Two molecules, <em>A</em> and <em>B</em>, share a leaving fragment. The model's own outputs for
+      each (<em>M&prime;<sub>A</sub></em>, <em>M&prime;<sub>B</sub></em>) are compared against a
+      graft (<em>M&Prime;<sub>B</sub></em>) in which the fragments chosen for <em>A</em> are
+      transplanted onto <em>B</em>'s scaffold. The two properties behave differently under that
+      transplant.
+    </p>
+
+    <figure class="fig">
+      <div class="fig-row two">
+        <div class="panel">
           <img src="./static/images/fig3_logp.svg" alt="Density of the logP change for the model's own outputs and for the grafted control">
-          <figcaption>
-            <strong>&Delta;logP transplants fine.</strong> All three distributions sit on top of
-            each other &mdash; logP is close to additive over fragments, so a fragment carries
-            its logP effect with it.
-          </figcaption>
-        </figure>
-      </div>
-      <div class="column">
-        <figure class="result-card is-plain">
+          <p class="panel-label">&Delta;logP &mdash; all three coincide</p>
+        </div>
+        <div class="panel">
           <img src="./static/images/fig3_qed.svg" alt="Density of the QED change for the model's own outputs and for the grafted control">
-          <figcaption>
-            <strong>&Delta;QED does not.</strong> The model's own outputs peak sharply near
-            +0.07; the graft spreads out and drifts negative. The same fragments stop paying off
-            once they are moved to another scaffold.
-          </figcaption>
-        </figure>
+          <p class="panel-label">&Delta;QED &mdash; the graft separates</p>
+        </div>
       </div>
-    </div>
-    <p class="result-foot">
-      100 generated insertions per molecule per target. QED is a whole-molecule property, so a
-      fragment that improves it in one scaffold need not improve it in another &mdash; and the
-      gap between the model's own choice and the transplant is the part that a lookup keyed on
-      the leaving fragment could not supply. The model is reading the whole molecular graph, not
-      just the fragment it is about to remove.
-    </p>
-  </div>
-</section>
-
-<!-- Result 3: novel bioisosterism -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="result-head">
-      <span class="result-tag">Result 3</span>
-      <h2 class="title is-3">Replacements beyond the known rules</h2>
-      <p class="result-intro">
-        One molecule, one fixed leaving fragment, 100 generated replacements. The proposals are
-        chemically diverse and are not enumerations of a substitution table &mdash; several do not
-        appear in the training pairs at all.
-      </p>
-    </div>
-
-    <div class="columns">
-      <div class="column is-two-thirds">
-        <figure class="result-card is-plain">
-          <img src="./static/images/generated_fragments.png" alt="Grid of the insertion fragments proposed by the model">
-          <figcaption>The proposed insertion fragments, drawn.</figcaption>
-        </figure>
-      </div>
-      <div class="column">
-        <figure class="result-card is-plain">
-          <img src="./static/images/fig4_qed.svg" alt="QED distribution of the top 50 generated molecules against the original">
-          <figcaption>
-            <strong>QED of the top 50.</strong> The dashed line is the input molecule; most
-            proposals land at or above it.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Case study -->
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <div class="result-head">
-      <span class="result-tag">Case study</span>
-      <h2 class="title is-3">Hit-to-lead, on someone else's hits</h2>
-      <p class="result-intro">
-        The inputs here are raw outputs of a structure-based generative model &mdash; the kind of
-        hit that scores well against a pocket but is awkward to make. DeepBioisostere is applied
-        downstream. In both cases synthetic accessibility and drug-likeness improve
-        <em>together</em>, and the docking score does not pay for it.
-      </p>
-    </div>
-
-    <figure class="case-figure">
-      <img src="./static/images/figure5a_deepicl68_input28_gen59.png" alt="Case A: the input hit and the generated replacement, with SA, QED and docking score for each">
       <figcaption>
-        <strong>Case A.</strong> The blue fragment goes out, the red one comes in.
-        SA <span class="metric-was">3.43</span> &rarr; <span class="metric-now">2.88</span>,
-        QED <span class="metric-was">0.73</span> &rarr; <span class="metric-now">0.83</span>,
-        docking <span class="metric-was">&minus;7.40</span> &rarr;
-        <span class="metric-now">&minus;7.60</span> kcal&nbsp;mol<sup>&minus;1</sup>.
+        <span class="fig-label">Figure 3</span>
+        100 generated insertions per molecule per target. logP is close to additive over fragments,
+        so a fragment carries its logP effect with it and the transplant is indistinguishable. QED
+        is a whole-molecule property: the model's own outputs peak near +0.07 while the graft
+        spreads out and drifts negative. The gap is the part a lookup keyed on the leaving fragment
+        could not supply.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap">
+    <h2>Replacements beyond established rules</h2>
+    <p>
+      For one molecule and one fixed leaving fragment, 100 replacements were generated. The
+      proposals are chemically diverse rather than enumerations of a substitution table, and several
+      do not appear among the training pairs.
+    </p>
+
+    <figure class="fig">
+      <img class="wide" src="./static/images/generated_fragments.png" alt="Grid of the insertion fragments proposed by the model">
+      <figcaption>
+        <span class="fig-label">Figure 4a</span>
+        The proposed insertion fragments.
       </figcaption>
     </figure>
 
-    <figure class="case-figure">
-      <img src="./static/images/figure5b_deepicl68_input7_gen64.png" alt="Case B: the input hit and the generated replacement, with SA, QED and docking score for each">
+    <figure class="fig narrow">
+      <img src="./static/images/fig4_qed.svg" alt="QED distribution of the top 50 generated molecules against the original">
       <figcaption>
-        <strong>Case B.</strong> A second hit from the same pipeline.
-        SA <span class="metric-was">3.52</span> &rarr; <span class="metric-now">2.57</span>,
-        QED <span class="metric-was">0.45</span> &rarr; <span class="metric-now">0.54</span>,
-        docking <span class="metric-was">&minus;5.50</span> &rarr;
-        <span class="metric-now">&minus;5.60</span> kcal&nbsp;mol<sup>&minus;1</sup>.
+        <span class="fig-label">Figure 4b</span>
+        QED of the top 50 generated molecules. The dashed line marks the input; most proposals fall
+        at or above it.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap">
+    <h2>Hit-to-lead case study</h2>
+    <p>
+      The inputs are raw outputs of a structure-based generative model &mdash; compounds that score
+      well against a pocket but are awkward to synthesize. Applying DeepBioisostere downstream
+      improves synthetic accessibility and drug-likeness together, without cost to the docking
+      score.
+    </p>
+
+    <figure class="fig">
+      <img class="wide" src="./static/images/fig5a_molecules.png" alt="Case A: the input compound with its outgoing fragment marked, and the generated product with the incoming fragment marked">
+      <p class="pair-label"><span>Original</span><span>Generated</span></p>
+      <figcaption>
+        <span class="fig-label">Figure 5a</span>
+        The outgoing fragment is marked on the input, the incoming one on the product.
+        SA 3.43 &rarr; 2.88, QED 0.73 &rarr; 0.83, docking &minus;7.40 &rarr; &minus;7.60
+        kcal&nbsp;mol<sup>&minus;1</sup>.
       </figcaption>
     </figure>
 
-    <p class="result-foot">
-      Lower SA is easier to synthesize, higher QED is more drug-like, and a more negative docking
-      score is a better predicted pose &mdash; so every arrow above points the right way. These
-      are the two cases shown in the paper; the docking provenance is archived with the record.
+    <figure class="fig">
+      <img class="wide" src="./static/images/fig5b_molecules.png" alt="Case B: the input compound with its outgoing fragment marked, and the generated product with the incoming fragment marked">
+      <p class="pair-label"><span>Original</span><span>Generated</span></p>
+      <figcaption>
+        <span class="fig-label">Figure 5b</span>
+        A second compound from the same pipeline.
+        SA 3.52 &rarr; 2.57, QED 0.45 &rarr; 0.54, docking &minus;5.50 &rarr; &minus;5.60
+        kcal&nbsp;mol<sup>&minus;1</sup>.
+      </figcaption>
+    </figure>
+    <p class="after-table">
+      Lower SA indicates an easier synthesis, higher QED a more drug-like compound, and a more
+      negative docking score a better predicted pose.
     </p>
-  </div>
-</section>
+  </section>
 
-<!-- Get started -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Try it</h2>
-    <div class="content">
-      <p>No conda environment and no compiled PyG extensions:</p>
-      <pre><code>pip install deepbioisostere</code></pre>
-      <p>Optimize a molecule for two properties at once:</p>
-      <pre><code>deepbioisostere generate \
-  --smiles "Cc1ccc2cnc(N(C)CCc3ccccn3)nc2c1" \
-  --target mw=0 --target logp=-1 \
-  --output results.csv</code></pre>
-      <p>Or from Python:</p>
-      <pre><code>from deepbioisostere import Conditioner, DeepBioisostere, Generator
+  <section class="wrap">
+    <h2>Availability</h2>
+    <p>
+      The implementation is distributed through
+      <a href="https://pypi.org/project/deepbioisostere/">PyPI</a>, with source on
+      <a href="https://github.com/Hwoo-Kim/DeepBioisostere">GitHub</a> under the MIT licence.
+      Trained weights and the fragment library are hosted on
+      <a href="https://huggingface.co/mseok/DeepBioisostere">Hugging Face</a> and are retrieved on
+      first use, so neither has to be obtained separately.
+    </p>
+    <p>
+      The analysis notebooks, the per-figure source data, the docking provenance and the
+      reproduction scripts are archived on
+      <a href="https://doi.org/10.5281/zenodo.20603081">Zenodo</a>. That record is self-contained:
+      every figure on this page can be regenerated from it without this repository.
+    </p>
+  </section>
 
-properties = ["logp", "mw"]
-model = DeepBioisostere.from_pretrained(properties=properties)
-generator = Generator(
-    model=model,
-    conditioner=Conditioner(phase="generation", properties=properties),
-    properties=properties,
-)
-df = generator.generate([("Cc1ccc2cnc(N(C)CCc3ccccn3)nc2c1", {"mw": 0, "logp": -1})])</code></pre>
-      <p>
-        Weights and the fragment library download and cache on first use. Every figure above is
-        reproducible from the <a href="https://doi.org/10.5281/zenodo.20603081">Zenodo record</a>,
-        which ships the analysis notebooks, the per-figure source data and the reproduction
-        scripts.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- BibTeX -->
-<section class="section is-light" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3">Citation</h2>
-    <pre><code>@article{kim2026deepbioisostere,
+  <section class="wrap">
+    <h2>Citation</h2>
+    <pre class="bibtex"><code>@article{kim2026deepbioisostere,
   title   = {Autonomous bioisosteric replacement for multi-property
              optimization in drug design},
   author  = {Kim, Hyeongwoo and Moon, Seokhyun and Zhung, Wonho and
@@ -465,26 +309,16 @@ df = generator.generate([("Cc1ccc2cnc(N(C)CCc3ccccn3)nc2c1", {"mw": 0, "logp": -
   year    = {2026},
   doi     = {10.1038/s41467-026-75512-9},
 }</code></pre>
-  </div>
-</section>
+  </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content has-text-centered">
-          <p>
-            Released under the <a href="https://github.com/Hwoo-Kim/DeepBioisostere/blob/master/LICENSE">MIT License</a>.
-          </p>
-          <p>
-            This page uses the layout of the
-            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page,
-            released under
-            <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
-          </p>
-        </div>
-      </div>
-    </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      Released under the
+      <a href="https://github.com/Hwoo-Kim/DeepBioisostere/blob/master/LICENSE">MIT License</a>.
+    </p>
   </div>
 </footer>
 
