@@ -49,7 +49,7 @@ body {
 
 .publication-note {
   margin-top: 0.35rem;
-  color: #8a8a8a;
+  color: #6b6b6b;
 }
 
 .publication-venue {
@@ -216,6 +216,13 @@ body {
   height: auto;
 }
 
+/* Figure 4 is exported with larger type than Figures 2 and 3; showing it at a
+   narrower width keeps its labels close to the size of theirs. */
+.fig-narrow img {
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
 .panel-label,
 .pair-label {
   font-size: 0.8rem;
@@ -257,10 +264,19 @@ figcaption {
 
 /* ---------- Table ---------- */
 
-table.data {
-  width: 100%;
+.table-scroll {
   max-width: 44rem;
   margin: 2.5rem auto 0;
+  overflow-x: auto;
+}
+
+.table-scroll:focus-visible {
+  outline: 2px solid #3273dc;
+  outline-offset: 2px;
+}
+
+table.data {
+  width: 100%;
   border-collapse: collapse;
   font-size: 0.92rem;
 }
@@ -316,6 +332,23 @@ table.data tbody tr:last-child td {
   font-size: 0.85rem;
 }
 
+.bibtex-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.bibtex-head .title {
+  margin-bottom: 0 !important;
+}
+
+/* Bulma gives .button a display value, which would override the hidden attribute. */
+.copy-bibtex[hidden] {
+  display: none;
+}
+
 .footer {
   padding: 2.5rem 1.5rem;
   background-color: #fafafa;
@@ -343,5 +376,32 @@ table.data tbody tr:last-child td {
   }
   .publication-subtitle {
     font-size: 1.15rem !important;
+  }
+}
+
+/* On a phone the three table columns wrapped inside the values ("-0.84 +/-" over
+   "0.43"). Keep each value on one line; .table-scroll covers anything narrower. */
+@media screen and (max-width: 480px) {
+  table.data {
+    font-size: 0.82rem;
+  }
+  table.data th,
+  table.data td {
+    padding-right: 0.6rem;
+  }
+  table.data td {
+    white-space: nowrap;
+  }
+  table.data thead th {
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .external-link.button,
+  .external-link.button:hover {
+    transition: none;
+    transform: none;
   }
 }

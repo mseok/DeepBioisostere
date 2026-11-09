@@ -12,11 +12,17 @@
   <meta property="og:title" content="DeepBioisostere">
   <meta property="og:description" content="Autonomous bioisosteric replacement for multi-property optimization in drug design. Nature Communications, 2026.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DeepBioisostere">
   <meta property="og:url" content="https://mseok.github.io/DeepBioisostere/">
-  <meta property="og:image" content="https://mseok.github.io/DeepBioisostere/static/images/generated_fragments.png">
+  <meta property="og:image" content="https://mseok.github.io/DeepBioisostere/static/images/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DeepBioisostere: autonomous bioisosteric replacement for multi-property optimization in drug design, with two drawings of the same molecule cut at different fragments.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DeepBioisostere">
   <meta name="twitter:description" content="Autonomous bioisosteric replacement for multi-property optimization in drug design.">
+  <meta name="twitter:image" content="https://mseok.github.io/DeepBioisostere/static/images/og-card.png">
+  <meta name="twitter:image:alt" content="DeepBioisostere: autonomous bioisosteric replacement for multi-property optimization in drug design, with two drawings of the same molecule cut at different fragments.">
 
   <!-- Citation metadata for Google Scholar / Zotero -->
   <meta name="citation_title" content="Autonomous bioisosteric replacement for multi-property optimization in drug design">
@@ -33,13 +39,20 @@
   <meta name="citation_firstpage" content="9113">
   <meta name="citation_doi" content="10.1038/s41467-026-75512-9">
 
+  <link rel="canonical" href="https://mseok.github.io/DeepBioisostere/">
+  <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
+
+  <!-- The icon fonts are fetched from these hosts after the stylesheets parse -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.6/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
 
+<main id="main">
 <!-- Title / authors / links -->
 <section class="hero">
   <div class="hero-body">
@@ -77,31 +90,31 @@
           <div class="publication-links">
             <span class="link-block">
               <a href="https://doi.org/10.1038/s41467-026-75512-9" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fas fa-file-lines"></i></span>
+                <span class="icon" aria-hidden="true"><i class="fas fa-file-lines"></i></span>
                 <span>Paper</span>
               </a>
             </span>
             <span class="link-block">
               <a href="https://github.com/Hwoo-Kim/DeepBioisostere" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fab fa-github"></i></span>
+                <span class="icon" aria-hidden="true"><i class="fab fa-github"></i></span>
                 <span>Code</span>
               </a>
             </span>
             <span class="link-block">
               <a href="https://doi.org/10.5281/zenodo.20603081" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="ai ai-zenodo"></i></span>
+                <span class="icon" aria-hidden="true"><i class="ai ai-zenodo"></i></span>
                 <span>Data</span>
               </a>
             </span>
             <span class="link-block">
               <a href="https://pypi.org/project/deepbioisostere/" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon"><i class="fab fa-python"></i></span>
+                <span class="icon" aria-hidden="true"><i class="fab fa-python"></i></span>
                 <span>PyPI</span>
               </a>
             </span>
             <span class="link-block">
               <a href="https://huggingface.co/mseok/DeepBioisostere" class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">&#129303;</span>
+                <span class="icon" aria-hidden="true">&#129303;</span>
                 <span>Weights</span>
               </a>
             </span>
@@ -116,12 +129,12 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/generated_fragments.png" alt="Fragments generated by DeepBioisostere" class="teaser-image">
-      <h2 class="subtitle has-text-centered">
+      <img src="./static/images/generated_fragments.png" alt="Fragments generated by DeepBioisostere" class="teaser-image" width="1400" height="1600" fetchpriority="high" decoding="async">
+      <p class="subtitle has-text-centered">
         DeepBioisostere proposes replacement fragments that preserve biological activity while
         moving several molecular properties toward their targets &mdash; including bioisosteres
         that do not appear in the training data.
-      </h2>
+      </p>
     </div>
   </div>
 </section>
@@ -132,7 +145,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <div class="content has-text-left-mobile has-text-justified-tablet">
           <p>
             Bioisosteric replacement substitutes one molecular fragment for a chemically or
             biologically analogous one, tuning a compound's properties without disrupting its
@@ -164,21 +177,21 @@
     <div class="columns is-centered">
       <div class="column">
         <div class="box feature-box">
-          <h3 class="title is-5"><span class="icon has-text-info"><i class="fas fa-crosshairs"></i></span> Where to cut</h3>
+          <h3 class="title is-5"><span class="icon has-text-info" aria-hidden="true"><i class="fas fa-crosshairs"></i></span> Where to cut</h3>
           <p>The molecule is decomposed along BRICS bonds and every resulting subgraph is scored
              as a removal candidate.</p>
         </div>
       </div>
       <div class="column">
         <div class="box feature-box">
-          <h3 class="title is-5"><span class="icon has-text-info"><i class="fas fa-puzzle-piece"></i></span> What to put back</h3>
+          <h3 class="title is-5"><span class="icon has-text-info" aria-hidden="true"><i class="fas fa-puzzle-piece"></i></span> What to put back</h3>
           <p>The vacated site is matched against a library of 140,096 insertion fragments, scored
              jointly with the removal choice.</p>
         </div>
       </div>
       <div class="column">
         <div class="box feature-box">
-          <h3 class="title is-5"><span class="icon has-text-info"><i class="fas fa-link"></i></span> How to attach it</h3>
+          <h3 class="title is-5"><span class="icon has-text-info" aria-hidden="true"><i class="fas fa-link"></i></span> How to attach it</h3>
           <p>A fragment can often be joined in more than one orientation, so the attachment points
              are scored before the product is composed.</p>
         </div>
@@ -203,9 +216,9 @@
 
     <figure class="fig">
       <div class="fig-row three">
-        <img src="./static/images/fig2_mol1_kde.svg" alt="Joint density of molecular weight against logP for molecule 1 under two opposing logP targets">
-        <img src="./static/images/fig2_mol2_kde.svg" alt="Joint density of molecular weight against logP for molecule 2 under two opposing logP targets">
-        <img src="./static/images/fig2_mol3_kde.svg" alt="Joint density of molecular weight against logP for molecule 3 under two opposing logP targets">
+        <img src="./static/images/fig2_mol1_kde.svg" alt="Joint density of molecular weight against logP for molecule 1 under two opposing logP targets" width="573" height="590" loading="lazy" decoding="async">
+        <img src="./static/images/fig2_mol2_kde.svg" alt="Joint density of molecular weight against logP for molecule 2 under two opposing logP targets" width="573" height="590" loading="lazy" decoding="async">
+        <img src="./static/images/fig2_mol3_kde.svg" alt="Joint density of molecular weight against logP for molecule 3 under two opposing logP targets" width="573" height="590" loading="lazy" decoding="async">
       </div>
       <p class="row-label three"><span>Molecule 1</span><span>Molecule 2</span><span>Molecule 3</span></p>
       <figcaption>
@@ -216,20 +229,22 @@
       </figcaption>
     </figure>
 
-    <table class="data">
-      <caption><span class="fig-label">Table 1</span> Mean achieved change against the commanded target, over 3,000 test molecules.</caption>
-      <thead>
-        <tr><th>Commanded</th><th>Achieved</th><th>Held property</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>logP &minus;1</td><td>&minus;0.84 &plusmn; 0.43</td><td><em>M</em><sub>w</sub> &minus;0.28 &plusmn; 12.6</td></tr>
-        <tr><td>logP +1</td><td>+0.83 &plusmn; 0.38</td><td><em>M</em><sub>w</sub> +0.04 &plusmn; 12.8</td></tr>
-        <tr><td>QED +0.1</td><td>+0.07 &plusmn; 0.09</td><td><em>M</em><sub>w</sub> &minus;0.11 &plusmn; 12.1</td></tr>
-        <tr><td>QED +0.2</td><td>+0.10 &plusmn; 0.10</td><td><em>M</em><sub>w</sub> &minus;0.57 &plusmn; 12.0</td></tr>
-        <tr><td>SA &minus;0.5</td><td>&minus;0.42 &plusmn; 0.43</td><td>QED &minus;0.03 &plusmn; 0.07</td></tr>
-        <tr><td>SA &minus;1</td><td>&minus;0.72 &plusmn; 0.52</td><td>QED &minus;0.03 &plusmn; 0.07</td></tr>
-      </tbody>
-    </table>
+    <div class="table-scroll" role="region" aria-label="Table 1" tabindex="0">
+      <table class="data">
+        <caption><span class="fig-label">Table 1</span> Mean achieved change against the commanded target, over 3,000 test molecules.</caption>
+        <thead>
+          <tr><th scope="col">Commanded</th><th scope="col">Achieved</th><th scope="col">Held property</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>logP &minus;1</td><td>&minus;0.84 &plusmn; 0.43</td><td><em>M</em><sub>w</sub> &minus;0.28 &plusmn; 12.6</td></tr>
+          <tr><td>logP +1</td><td>+0.83 &plusmn; 0.38</td><td><em>M</em><sub>w</sub> +0.04 &plusmn; 12.8</td></tr>
+          <tr><td>QED +0.1</td><td>+0.07 &plusmn; 0.09</td><td><em>M</em><sub>w</sub> &minus;0.11 &plusmn; 12.1</td></tr>
+          <tr><td>QED +0.2</td><td>+0.10 &plusmn; 0.10</td><td><em>M</em><sub>w</sub> &minus;0.57 &plusmn; 12.0</td></tr>
+          <tr><td>SA &minus;0.5</td><td>&minus;0.42 &plusmn; 0.43</td><td>QED &minus;0.03 &plusmn; 0.07</td></tr>
+          <tr><td>SA &minus;1</td><td>&minus;0.72 &plusmn; 0.52</td><td>QED &minus;0.03 &plusmn; 0.07</td></tr>
+        </tbody>
+      </table>
+    </div>
     <p class="after-note has-text-centered">
       In every row the commanded property moves and the held property does not, so the two are
       steered independently rather than traded against each other.
@@ -249,8 +264,8 @@
 
     <figure class="fig">
       <div class="fig-row two is-cut">
-        <img src="./static/images/fig2_mol1_cut_a.svg" alt="Molecule 1 with the polar oxyacetic acid arm marked for removal">
-        <img src="./static/images/fig2_mol1_cut_b.svg" alt="Molecule 1 with the lipophilic cycloheptylmethyl group marked for removal">
+        <img src="./static/images/fig2_mol1_cut_a.svg" alt="Molecule 1 with the polar oxyacetic acid arm marked for removal" width="108" height="67" loading="lazy" decoding="async">
+        <img src="./static/images/fig2_mol1_cut_b.svg" alt="Molecule 1 with the lipophilic cycloheptylmethyl group marked for removal" width="108" height="67" loading="lazy" decoding="async">
       </div>
       <p class="row-label two"><span>Polar oxyacetic acid arm removed</span><span>Lipophilic cycloheptylmethyl group removed</span></p>
       <figcaption>
@@ -277,8 +292,8 @@
 
     <figure class="fig">
       <div class="fig-row two">
-        <img src="./static/images/fig3_logp.svg" alt="Density of the logP change for the model's own outputs and for the grafted control">
-        <img src="./static/images/fig3_qed.svg" alt="Density of the QED change for the model's own outputs and for the grafted control">
+        <img src="./static/images/fig3_logp.svg" alt="Density of the logP change for the model's own outputs and for the grafted control" width="614" height="461" loading="lazy" decoding="async">
+        <img src="./static/images/fig3_qed.svg" alt="Density of the QED change for the model's own outputs and for the grafted control" width="614" height="461" loading="lazy" decoding="async">
       </div>
       <p class="row-label two"><span>&Delta;logP &mdash; all three coincide</span><span>&Delta;QED &mdash; the graft separates</span></p>
       <figcaption>
@@ -305,8 +320,8 @@
 
     <div class="columns is-centered">
       <div class="column is-two-thirds">
-        <figure class="fig">
-          <img src="./static/images/fig4_qed.svg" alt="QED distribution of the top 50 generated molecules against the original">
+        <figure class="fig fig-narrow">
+          <img src="./static/images/fig4_qed.svg" alt="QED distribution of the top 50 generated molecules against the original" width="614" height="461" loading="lazy" decoding="async">
           <figcaption>
             <span class="fig-label">Figure 4</span>
             QED of the top 50 generated molecules; the proposed fragments themselves are the grid
@@ -331,7 +346,7 @@
     </p>
 
     <figure class="fig">
-      <img src="./static/images/fig5a_molecules.png" alt="Case A: the input compound with its outgoing fragment marked, and the generated product with the incoming fragment marked">
+      <img src="./static/images/fig5a_molecules.png" alt="Case A: the input compound with its outgoing fragment marked, and the generated product with the incoming fragment marked" width="2174" height="464" loading="lazy" decoding="async">
       <p class="pair-label"><span>Original</span><span>Generated</span></p>
       <figcaption>
         <span class="fig-label">Figure 5a</span>
@@ -342,7 +357,7 @@
     </figure>
 
     <figure class="fig">
-      <img src="./static/images/fig5b_molecules.png" alt="Case B: the input compound with its outgoing fragment marked, and the generated product with the incoming fragment marked">
+      <img src="./static/images/fig5b_molecules.png" alt="Case B: the input compound with its outgoing fragment marked, and the generated product with the incoming fragment marked" width="2176" height="575" loading="lazy" decoding="async">
       <p class="pair-label"><span>Original</span><span>Generated</span></p>
       <figcaption>
         <span class="fig-label">Figure 5b</span>
@@ -364,7 +379,7 @@
     <h2 class="title is-3 has-text-centered">Availability</h2>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <div class="content has-text-justified">
+        <div class="content has-text-left-mobile has-text-justified-tablet">
           <p>
             The implementation is distributed through
             <a href="https://pypi.org/project/deepbioisostere/">PyPI</a>, with source on
@@ -389,8 +404,11 @@
 <!-- BibTeX -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title is-3">Citation</h2>
-    <pre><code>@article{kim2026deepbioisostere,
+    <div class="bibtex-head">
+      <h2 class="title is-3">Citation</h2>
+      <button type="button" class="button is-small is-rounded is-dark copy-bibtex" id="copy-bibtex" aria-live="polite" hidden>Copy BibTeX</button>
+    </div>
+    <pre><code id="bibtex">@article{kim2026deepbioisostere,
   title   = {Autonomous bioisosteric replacement for multi-property
              optimization in drug design},
   author  = {Kim, Hyeongwoo and Moon, Seokhyun and Zhung, Wonho and
@@ -404,6 +422,7 @@
 }</code></pre>
   </div>
 </section>
+</main>
 
 <footer class="footer">
   <div class="container">
@@ -425,5 +444,24 @@
   </div>
 </footer>
 
+<script>
+  // Copy-to-clipboard for the BibTeX block. The button stays hidden when JavaScript
+  // or the Clipboard API is unavailable, and the block remains selectable by hand.
+  (function () {
+    var button = document.getElementById('copy-bibtex');
+    var source = document.getElementById('bibtex');
+    if (!button || !source || !navigator.clipboard) return;
+    button.hidden = false;
+    button.addEventListener('click', function () {
+      navigator.clipboard.writeText(source.textContent).then(function () {
+        button.textContent = 'Copied';
+      }, function () {
+        button.textContent = 'Copy failed';
+      }).then(function () {
+        setTimeout(function () { button.textContent = 'Copy BibTeX'; }, 2000);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
